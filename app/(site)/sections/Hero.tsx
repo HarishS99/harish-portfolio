@@ -15,14 +15,23 @@ export default function Hero() {
         <div className="mb-4 opacity-80 text-sm">
           Engineer • Storyteller • Exploring Tech Strategy
         </div>
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={onContactClick}
-          className="px-4 py-2 rounded-2xl border opacity-90 hover:opacity-100"
-        >
-          Contact / Hire Me
-        </motion.button>
+        <div className="flex items-center">
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={onContactClick}
+            className="px-4 py-2 rounded-2xl border opacity-90 hover:opacity-100"
+          >
+            Contact / Hire Me
+          </motion.button>
+          <a
+            href="/Harish_Subramanian_Resume.pdf"
+            download
+            className="ml-3 px-4 py-2 rounded-2xl border opacity-90 hover:opacity-100"
+          >
+            Download Resume
+          </a>
+        </div>
       </div>
       <div className="flex justify-center md:justify-end">
         <motion.img

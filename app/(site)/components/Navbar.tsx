@@ -69,14 +69,6 @@ export default function Navbar() {
             <a href="#projects-impact" onClick={() => setMenuOpen(false)}>Projects</a>
             <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
           </div>
-
-          <button
-            onClick={onToggleTheme}
-            className="self-center mt-10 text-lg opacity-90 hover:opacity-100 transition-transform duration-200"
-            aria-label="Toggle theme"
-          >
-            {isDark ? "🌙 Dark Mode" : "💡 Light Mode"}
-          </button>
         </div>
       )}
     </>

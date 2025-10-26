@@ -5,6 +5,7 @@ import Blog from "./(site)/sections/Blog";
 import Experience from "./(site)/sections/Experience";
 import ProjectsImpact from "./(site)/sections/ProjectsImpact";
 import Contact from "./(site)/sections/Contact";
+import Education from "./(site)/sections/Education";
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
         <Hero />
         <About />
         <Blog />
+        <Education />
         <Experience />
         <ProjectsImpact />
         <Contact />

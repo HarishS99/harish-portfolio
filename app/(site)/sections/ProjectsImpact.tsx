@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 export default function ProjectsImpact() {
   return (
     <motion.section
-      id="publications"
+      id="projects-impact"
       className="max-w-3xl mx-auto mb-16"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}

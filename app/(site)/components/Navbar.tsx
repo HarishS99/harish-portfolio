@@ -20,8 +20,9 @@ export default function Navbar() {
     <nav className="flex items-center justify-between mb-8">
       <div className="opacity-80 text-sm flex gap-4">
         <a href="#about" className="hover:opacity-50 transition">About</a>
-        <a href="#blog" className="hover:opacity-50 transition">Blog</a>
+        <a href="#education" className="hover:opacity-50 transition">Education</a>
         <a href="#experience" className="hover:opacity-50 transition">Experience</a>
+        <a href="#certifications" className="hover:opacity-50 transition">Certifications</a>
         <a href="#projects-impact" className="hover:opacity-50 transition">Projects</a>
         <a href="#contact" className="hover:opacity-50 transition">Contact</a>
       </div>

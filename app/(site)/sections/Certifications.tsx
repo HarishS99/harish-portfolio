@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 export default function Certifications() {
   return (
     <section id="certifications" className="max-w-3xl mx-auto mb-16">

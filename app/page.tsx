@@ -13,6 +13,7 @@ import Publications from "./(site)/sections/Publications";
 export default function Page() {
   return (
     <main className="min-h-screen p-6 md:p-10">
+      <Navbar />
       <div className="max-w-5xl mx-auto">
         <Hero />
         <About />

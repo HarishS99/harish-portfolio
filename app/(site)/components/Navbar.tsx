@@ -34,13 +34,7 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <button
-              onClick={onToggleTheme}
-              className="text-lg opacity-90 hover:opacity-100 transition-transform duration-200"
-              aria-label="Toggle theme"
-            >
-              {isDark ? "🌙" : "💡"}
-            </button>
+            {/* Hamburger for Mobile */}
             <button
               className="md:hidden text-xl"
               onClick={() => setMenuOpen(true)}
@@ -51,7 +45,7 @@ export default function Navbar() {
         </nav>
       )}
 
-      {/* MOBILE FULL SCREEN OVERLAY MENU */}
+      {/* MOBILE FULL-SCREEN OVERLAY MENU */}
       {menuOpen && (
         <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl text-white flex flex-col justify-between p-8">
           <button
@@ -69,6 +63,15 @@ export default function Navbar() {
             <a href="#projects-impact" onClick={() => setMenuOpen(false)}>Projects</a>
             <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
           </div>
+
+          {/* Dark / Light Mode Toggle Inside Menu */}
+          <button
+            onClick={onToggleTheme}
+            className="self-center mt-10 text-lg opacity-90 hover:opacity-100 transition-transform duration-200"
+            aria-label="Toggle theme"
+          >
+            {isDark ? "🌙 Dark Mode" : "💡 Light Mode"}
+          </button>
         </div>
       )}
     </>

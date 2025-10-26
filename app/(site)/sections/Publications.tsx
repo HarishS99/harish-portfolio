@@ -13,10 +13,11 @@ export default function Publications() {
           className="block p-4 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-sm hover:scale-[1.01] hover:shadow-xl transition-transform duration-200"
         >
           <img
-            src="/publication.png" // ✅ replace with actual filename you uploaded
-            alt="Publication Cover"
-            className="w-full rounded-xl mb-4 object-cover"
+          src="/publication.png"
+          alt="Publication Cover"
+          className="w-full aspect-video max-h-[200px] rounded-xl mb-4 object-cover"
           />
+
 
           <h3 className="text-lg font-medium">Beginner’s Handbook to DevOps — Dell Knowledge Sharing 2022</h3>
           <p className="text-sm opacity-80 mt-2">

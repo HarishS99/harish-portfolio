@@ -12,14 +12,13 @@ export default function Page() {
   return (
     <main className="min-h-screen p-6 md:p-10">
       <div className="max-w-5xl mx-auto">
-        <Navbar />
-        <Hero />
         <About />
-        <Education />
         <Experience />
         <Certifications />
+        <Capabilities />
         <ProjectsImpact />
-        <Blog />
+        <Publications />    
+        <Education />
         <Contact />
         <footer className="text-center mt-16 mb-6 opacity-80 text-sm transition hover:opacity-100">
         <div className="flex justify-center gap-5 mb-3">

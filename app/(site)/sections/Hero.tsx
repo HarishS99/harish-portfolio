@@ -5,17 +5,23 @@ export default function Hero() {
   const onContactClick = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
   return (
-    <>
     <section className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center pt-4 md:pt-12">
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <h1 className="text-4xl font-bold mb-3">Harish Subramanian</h1>
-        <p className="text-lg opacity-80 mb-8">
-          Tech Evangelist with a business-oriented mindset to solve complex problems across Infrastructure, Data Protection and AI.
+        <p className="text-lg opacity-90 mb-6">
+          Solutions Engineer at <span className="font-semibold">Commvault</span> — 
+          blending Infrastructure, AI and Business Strategy to deliver real-world impact.
         </p>
         <div className="mb-4 opacity-80 text-sm">
-          Engineer • Storyteller • Exploring Tech Strategy
+          AI & Infra Strategist • Pre-Sales • Human-Centered Technology
         </div>
+
         <div className="flex items-center">
           <motion.button
             whileHover={{ scale: 1.02 }}
@@ -33,43 +39,20 @@ export default function Hero() {
             Download Resume
           </a>
         </div>
-      </div>
-      <div className="flex justify-center md:justify-end">
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        className="flex justify-center md:justify-end"
+      >
         <motion.img
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           src="/harish.jpg"
           alt="Profile"
           className="w-48 h-48 rounded-full object-cover border border-white/10"
         />
-      </div>
+      </motion.div>
     </section>
-    <section className="max-w-5xl mx-auto mt-6 mb-12">
-     <h2 className="text-lg font-semibold mb-3">Capabilities</h2>
-      <div className="flex flex-wrap gap-2 opacity-90 text-sm">
-      {[
-        "Azure",
-        "Commvault",
-        "Dell Cyber Recovery",
-        "Python",
-        "Machine Learning",
-        "Power BI",
-        "Data Protection",
-        "NLP",
-        "Virtualization",
-        "Human Centered Designing",
-        "Pre-Sales",
-      ].map((skill) => (
-        <span
-          key={skill}
-          className="px-3 py-1 border rounded-full opacity-80 hover:opacity-100 transition"
-        >
-        {skill}
-        </span>
-      ))}
-    </div>
-  </section>
-  </>
   );
 }

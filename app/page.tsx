@@ -15,12 +15,16 @@ export default function Page() {
         <Navbar />
         <Hero />
         <About />
-        <Blog />
         <Education />
         <Experience />
         <Certifications />
         <ProjectsImpact />
+        <Blog />
         <Contact />
+        <footer className="text-center text-sm opacity-60 mt-12 mb-4">
+        © {new Date().getFullYear()} Harish Subramanian — All Rights Reserved
+        </footer>
+
       </div>
     </main>
   );

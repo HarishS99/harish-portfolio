@@ -1,6 +1,6 @@
 export default function ProjectsImpact() {
   return (
-    <section id="projects-impact" className="max-w-5xl mx-auto mb-16">
+    <section id="projects-impact" className="max-w-5xl mx-auto mb-16 -mt-4">
       <h2 className="text-2xl font-semibold mb-6">Projects & Impact</h2>
 
       <div className="space-y-8">

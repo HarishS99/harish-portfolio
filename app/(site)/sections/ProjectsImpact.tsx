@@ -3,7 +3,7 @@ export default function ProjectsImpact() {
     <section id="projects-impact" className="max-w-5xl mx-auto mb-16 -mt-4">
       <h2 className="text-2xl font-semibold mb-6">Projects & Impact</h2>
 
-      <div className="space-y-8">
+      <div className="space-y-6">
 
         {/* --- PROJECT CARD --- */}
         <div className="p-6 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md">

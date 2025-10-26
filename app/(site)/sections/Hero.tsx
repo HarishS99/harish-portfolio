@@ -44,5 +44,31 @@ export default function Hero() {
         />
       </div>
     </section>
+    <section className="max-w-5xl mx-auto mt-6 mb-12">
+    <h2 className="text-lg font-semibold mb-3">Capabilities</h2>
+    <div className="flex flex-wrap gap-2 opacity-90 text-sm">
+    {[
+      "Azure",
+      "Commvault",
+      "Dell Cyber Recovery",
+      "Python",
+      "Machine Learning",
+      "Power BI",
+      "Data Protection",
+      "NLP",
+      "Virtualization",
+      "Human Centered Designing",
+      "Pre-Sales",
+    ].map((skill) => (
+      <span
+        key={skill}
+        className="px-3 py-1 border rounded-full opacity-80 hover:opacity-100 transition"
+      >
+        {skill}
+      </span>
+    ))}
+  </div>
+</section>
+
   );
 }

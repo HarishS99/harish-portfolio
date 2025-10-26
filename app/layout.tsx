@@ -23,7 +23,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased bg-white text-black dark:bg-black dark:text-white transition-colors">
+        <div className="pt-6">  {/* Add padding-top to account for sticky navbar height */}
         {children}
+        </div>
       </body>
     </html>
   );

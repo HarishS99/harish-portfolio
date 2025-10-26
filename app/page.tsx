@@ -7,6 +7,8 @@ import ProjectsImpact from "./(site)/sections/ProjectsImpact";
 import Contact from "./(site)/sections/Contact";
 import Education from "./(site)/sections/Education";
 import Certifications from "./(site)/sections/Certifications";
+import Publications from "./(site)/sections/Publications";
+
 
 export default function Page() {
   return (

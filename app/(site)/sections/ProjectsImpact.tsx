@@ -6,7 +6,7 @@ export default function ProjectsImpact() {
       <div className="space-y-6">
 
         {/* --- PROJECT CARD --- */}
-        <div className="p-6 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md">
+        <div className="p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md">
           <div className="flex justify-between items-start">
             <h3 className="text-lg font-semibold">Network Analysis</h3>
             <a href="https://github.com/HarishS99" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 text-xl">
@@ -27,7 +27,7 @@ export default function ProjectsImpact() {
           </div>
         </div>
 {/* --- PROJECT CARD --- */}
-        <div className="p-6 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md">
+        <div className="p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md">
           <div className="flex justify-between items-start">
             <h3 className="text-lg font-semibold">Sentiment Analyzer (NLP)</h3>
             <a href="https://github.com/HarishS99" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 text-xl">
@@ -48,7 +48,7 @@ export default function ProjectsImpact() {
           </div>
         </div>
         {/* --- PROJECT CARD --- */}
-        <div className="p-6 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md">
+        <div className="p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md">
           <div className="flex justify-between items-start">
             <h3 className="text-lg font-semibold">Text Summarizer (NLP)</h3>
             <a href="https://github.com/HarishS99" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 text-xl">

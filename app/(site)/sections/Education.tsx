@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 export default function Education() {
   return (
     <section id="education" className="max-w-3xl mx-auto mb-16">

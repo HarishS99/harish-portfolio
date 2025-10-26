@@ -29,7 +29,7 @@ export default function Navbar() {
             <a href="#experience" className="hover:text-black dark:hover:text-white transition">Experience</a>
             <a href="#certifications" className="hover:text-black dark:hover:text-white transition">Certifications</a>
             <a href="#projects-impact" className="hover:text-black dark:hover:text-white transition">Projects</a>
-            <a href="#publication" className="hover:text-black dark:hover:text-white transition">Featured Publications</a>
+            <a href="#publications" className="hover:text-black dark:hover:text-white transition">Featured Publications</a>
             <a href="#education" className="hover:text-black dark:hover:text-white transition">Education</a>
             <a href="#contact" className="hover:text-black dark:hover:text-white transition">Contact</a>
           </div>
@@ -70,7 +70,7 @@ export default function Navbar() {
             <a href="#experience" onClick={() => setMenuOpen(false)}>Experience</a>
             <a href="#certifications" onClick={() => setMenuOpen(false)}>Certifications</a>
             <a href="#projects-impact" onClick={() => setMenuOpen(false)}>Projects</a>
-            <a href="#publication" onClick={() => setMenuOpen(false)}>Featured Publications</a>
+            <a href="#publications" onClick={() => setMenuOpen(false)}>Featured Publications</a>
             <a href="#education" onClick={() => setMenuOpen(false)}>Education</a>
             <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
           </div>

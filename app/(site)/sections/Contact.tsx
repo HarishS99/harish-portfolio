@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 export default function Contact() {
   return (
@@ -20,5 +21,6 @@ export default function Contact() {
         <p><a className="underline" href="https://www.linkedin.com/in/harish-subramanian-a246a016b/" target="_blank">Connect on LinkedIn</a></p>
       </div>
     </section>
+      </motion.section>
   );
 }

@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 export default function ProjectsImpact() {
   return (
@@ -78,6 +79,7 @@ export default function ProjectsImpact() {
         </div>
       </div>
     </section>
+      </motion.section>
   );
 }
 

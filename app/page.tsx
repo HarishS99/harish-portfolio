@@ -21,9 +21,21 @@ export default function Page() {
         <ProjectsImpact />
         <Blog />
         <Contact />
-        <footer className="text-center text-sm opacity-60 mt-12 mb-4">
+        <footer className="text-center mt-16 mb-6 opacity-80 text-sm transition hover:opacity-100">
+        <div className="flex justify-center gap-5 mb-3">
+          <a href="https://www.linkedin.com/in/harish-subramanian-a246a016b/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
+            🔗
+          </a>
+          <a href="https://github.com/HarishS99" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
+            💻
+          </a>
+          <a href="https://www.instagram.com/mr_culista10?igsh=MTAwczZ3c2dnbmh3ZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition">
+            📸
+          </a>
+        </div>
         © {new Date().getFullYear()} Harish Subramanian — All Rights Reserved
         </footer>
+
 
       </div>
     </main>

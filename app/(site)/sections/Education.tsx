@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
-export default function Education() {
+export default function Publications() {
   return (
+    <motion.section
+      id="publications"
+      className="max-w-3xl mx-auto mb-16"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
     <section id="education" className="max-w-3xl mx-auto mb-16">
       <h2 className="text-2xl font-semibold mb-4">Education</h2>
 

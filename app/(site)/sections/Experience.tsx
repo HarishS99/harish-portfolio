@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 export default function Experience() {
   return (
@@ -48,5 +49,6 @@ export default function Experience() {
       </div>
 
     </section>
+      </motion.section>
   );
 }

@@ -17,7 +17,6 @@ export default function Page() {
         <About />
         <Experience />
         <Certifications />
-        <Capabilities />
         <ProjectsImpact />
         <Publications />    
         <Education />

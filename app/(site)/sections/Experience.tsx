@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-export default function Publications() {
+export default function Experience() {
   return (
     <motion.section
-      id="publications"
+      id="experience"
       className="max-w-3xl mx-auto mb-16"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}

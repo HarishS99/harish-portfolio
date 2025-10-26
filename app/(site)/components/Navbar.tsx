@@ -27,17 +27,17 @@ export default function Navbar() {
         <a href="#contact" className="hover:opacity-50 transition">Contact</a>
       </div>
       <button
-      onClick={onToggle}
-      className="text-lg opacity-80 hover:opacity-100 transition-transform duration-200"
-      aria-label="Toggle theme"
+        onClick={onToggle}
+        className="text-lg opacity-80 hover:opacity-100 transition-transform duration-200"
+        aria-label="Toggle theme"
       >
-      {document?.documentElement.classList.contains("dark") ? (
-      <span className="inline-block rotate-0 transition-transform duration-200">🌙</span> // moon icon (dark mode)
-      ) : (
-      <span className="inline-block rotate-0 transition-transform duration-200">💡</span> // bulb icon (light mode)
-      )}
+        {typeof window !== "undefined" &&
+        document.documentElement.classList.contains("dark") ? (
+          <span className="inline-block transition-transform duration-200">🌙</span> // dark mode icon
+        ) : (
+          <span className="inline-block transition-transform duration-200">💡</span> // light mode icon
+        )}
       </button>
-
     </nav>
   );
 }

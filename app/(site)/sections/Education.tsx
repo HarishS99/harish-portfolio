@@ -5,7 +5,7 @@ export default function Education() {
 
       <div className="flex items-start gap-4 mb-6">
         <img
-          src="/iim-logo.png" 
+          src="/iima-logo.png" 
           alt="IIM Ahmedabad"
           className="w-10 h-10 object-contain opacity-80"
         />

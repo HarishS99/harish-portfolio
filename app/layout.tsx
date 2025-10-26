@@ -1,23 +1,35 @@
 import "./(site)/styles/globals.css";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Harish Subramanian — Portfolio",
-  description: "Tech Evangelist with a business-oriented mindset to solve complex problems across Infrastructure, Data Protection and AI.",
-  icons: { icon: "/favicon.ico" },
+export const metadata = {
+  title: "Harish Subramanian | Solutions Engineer + Tech Enthusiast",
+  description:
+    "Inside Sales Engineer at Commvault | PGP in Business Analytics at IIM Ahmedabad | Infra, AI & Cybersecurity enthusiast",
   openGraph: {
-    title: "Harish Subramanian — Portfolio",
-    description: "Engineer & Strategist — Infrastructure, Data Protection, AI.",
-    url: "https://harish.vercel.app",
-    siteName: "Harish Subramanian",
-    type: "website"
+    title: "Harish Subramanian | Solutions Engineer + Tech Enthusiast",
+    description:
+      "Inside Sales Engineer at Commvault | PGP in Business Analytics at IIM Ahmedabad | Infra, AI & Cybersecurity enthusiast",
+    url: "https://harish1.vercel.app", // update later if you change domain
+    siteName: "Harish Subramanian Portfolio",
+    images: [
+      {
+        url: "/harish.jpg", // this becomes your share preview — change later if needed
+        width: 1200,
+        height: 630,
+        alt: "Harish Subramanian",
+      },
+    ],
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harish Subramanian — Portfolio",
-    description: "Engineer & Strategist — Infrastructure, Data Protection, AI."
-  }
+    title: "Harish Subramanian | Solutions Engineer + Tech Enthusiast",
+    description:
+      "Inside Sales Engineer at Commvault | PGP in Business Analytics at IIM Ahmedabad | Infra, AI & Cybersecurity enthusiast",
+    images: ["/harish.jpg"],
+  },
 };
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

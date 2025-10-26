@@ -1,12 +1,18 @@
 "use client";
 import { motion } from "framer-motion";
-
 export default function Hero() {
   const onContactClick = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
-
   return (
+    <motion.section
+      id="hero"
+      className="max-w-3xl mx-auto mb-16"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
     <section className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center pt-4 md:pt-12">
       <motion.div
         initial={{ opacity: 0, y: 15 }}

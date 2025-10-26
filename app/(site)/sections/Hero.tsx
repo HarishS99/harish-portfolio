@@ -7,7 +7,7 @@ export default function Hero() {
   };
   return (
     <>
-    <section className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center pt-8">
+    <section className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center pt-4 md:pt-12">
       <div>
         <h1 className="text-4xl font-bold mb-3">Harish Subramanian</h1>
         <p className="text-lg opacity-80 mb-8">

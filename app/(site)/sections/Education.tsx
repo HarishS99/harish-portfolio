@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 export default function Education() {
   return (
@@ -45,5 +46,6 @@ export default function Education() {
       </div>
 
     </section>
+      </motion.section>
   );
 }

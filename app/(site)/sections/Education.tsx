@@ -5,25 +5,25 @@ export default function Education() {
 
       <div className="flex items-start gap-4 mb-6">
         <img
-          src="/iim-logo.png"
+          src="/iim-logo.webp"
           alt="IIM Ahmedabad"
           className="w-10 h-10 object-contain opacity-80"
         />
         <p className="opacity-90 italic">
           Post Graduate Program in Advanced Business Analytics, IIM Ahmedabad (2025–2026),
-          specializing in Machine Learning, Business Strategy, Data Visualization, and Predictive Modelling.
+          Relevant Courses: Statistics & Probability, Predictive Analytics, Machine Learning, Big Data Analytics, Optimization & Operations Research, Business Forecasting, Financial Analytics, Customer Analytics, Data Visualization                                                                                        
         </p>
       </div>
 
       <div className="flex items-start gap-4">
         <img
-          src="/amrita-logo.png"
+          src="/amrita-logo.jpeg"
           alt="Amrita Vishwa Vidyapeetham"
           className="w-10 h-10 object-contain opacity-80"
         />
         <p className="opacity-90 italic">
           Bachelor of Technology in Computer Science & Engineering, Amrita Vishwa Vidyapeetham (2017–2021),
-          focused on Database Systems, Machine Learning, NLP, Cloud Computing, and Software Architecture.
+          Relevant Courses: Data Structures & Algorithms, Database Management Systems, Operating Systems, Cloud Computing, Artificial Intelligence & Machine Learning, Cybersecurity, Web Development, NLP, Big Data Analytics
         </p>
       </div>
     </section>

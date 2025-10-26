@@ -34,6 +34,15 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
+            {/* Dark Mode Toggle — Desktop Only */}
+            <button
+              onClick={onToggleTheme}
+              className="hidden md:block text-lg opacity-90 hover:opacity-100 transition-transform duration-200"
+              aria-label="Toggle theme"
+            >
+              {isDark ? "🌙" : "💡"}
+            </button>
+
             {/* Hamburger for Mobile */}
             <button
               className="md:hidden text-xl"

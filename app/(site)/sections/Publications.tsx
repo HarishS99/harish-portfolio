@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 export default function Publications() {
   return (
@@ -40,5 +41,6 @@ export default function Publications() {
 
       </div>
     </section>
+      </motion.section>
   );
 }

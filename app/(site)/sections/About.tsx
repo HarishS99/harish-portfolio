@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 export default function About() {
   return (
     <section id="about" className="max-w-3xl mx-auto mt-16 mb-16">

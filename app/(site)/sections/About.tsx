@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 export default function About() {
   return (
@@ -16,5 +17,6 @@ export default function About() {
         and Proof of Values to the business stakeholders. Pursuing my MBA in Business Analytics and AI from IIM Ahmedabad to sharpen my strategic and analytical decision-making.
       </p>
     </section>
+      </motion.section>
   );
 }

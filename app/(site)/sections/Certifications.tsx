@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 export default function Certifications() {
   return (
@@ -46,5 +47,6 @@ export default function Certifications() {
 
       </div>
     </section>
+      </motion.section>
   );
 }

@@ -5,14 +5,18 @@ export default function Education() {
 
       <div className="flex items-start gap-4 mb-6">
         <img
-          src="/iim-logo.webp"
+          src="/iim-logo.png" 
           alt="IIM Ahmedabad"
           className="w-10 h-10 object-contain opacity-80"
         />
-        <p className="opacity-90 italic">
-          Post Graduate Program in Advanced Business Analytics, IIM Ahmedabad (2025–2026),
-          Relevant Courses: Statistics & Probability, Predictive Analytics, Machine Learning, Big Data Analytics, Optimization & Operations Research, Business Forecasting, Financial Analytics, Customer Analytics, Data Visualization                                                                                        
-        </p>
+        <div>
+          <p className="opacity-90 italic">
+            Post Graduate Program in Advanced Business Analytics, IIM Ahmedabad (2025–2026)
+          </p>
+          <p className="opacity-80 mt-1 text-sm">
+            <strong>Relevant Coursework:</strong> Statistics & Probability, Predictive Analytics, Machine Learning, Big Data Analytics, Optimization & Operations Research, Business Forecasting, Financial Analytics, Customer Analytics, Data Visualization                                                                                        
+          </p>
+        </div>
       </div>
 
       <div className="flex items-start gap-4">
@@ -21,11 +25,16 @@ export default function Education() {
           alt="Amrita Vishwa Vidyapeetham"
           className="w-10 h-10 object-contain opacity-80"
         />
-        <p className="opacity-90 italic">
-          Bachelor of Technology in Computer Science & Engineering, Amrita Vishwa Vidyapeetham (2017–2021),
-          Relevant Courses: Data Structures & Algorithms, Database Management Systems, Operating Systems, Cloud Computing, Artificial Intelligence & Machine Learning, Cybersecurity, Web Development, NLP, Big Data Analytics
-        </p>
+        <div>
+          <p className="opacity-90 italic">
+            Bachelor of Technology in Computer Science & Engineering, Amrita Vishwa Vidyapeetham (2017–2021)
+          </p>
+          <p className="opacity-80 mt-1 text-sm">
+            <strong>Relevant Coursework:</strong> Data Structures & Algorithms, Database Management Systems, Operating Systems, Cloud Computing, Artificial Intelligence & Machine Learning, Cybersecurity, Web Development, NLP, Big Data Analytics
+          </p>
+        </div>
       </div>
+
     </section>
   );
 }

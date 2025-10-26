@@ -17,7 +17,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-between mb-8">
+    <nav className="flex items-center justify-between mb-8 sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-black/80">
       <div className="opacity-80 text-sm flex gap-4">
         <a href="#about" className="hover:opacity-50 transition">About</a>
         <a href="#education" className="hover:opacity-50 transition">Education</a>

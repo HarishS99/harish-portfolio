@@ -6,6 +6,7 @@ import Experience from "./(site)/sections/Experience";
 import ProjectsImpact from "./(site)/sections/ProjectsImpact";
 import Contact from "./(site)/sections/Contact";
 import Education from "./(site)/sections/Education";
+import Certifications from "./(site)/sections/Certifications";
 
 export default function Page() {
   return (
@@ -17,6 +18,7 @@ export default function Page() {
         <Blog />
         <Education />
         <Experience />
+        <Certifications />
         <ProjectsImpact />
         <Contact />
       </div>

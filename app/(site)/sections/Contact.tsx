@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 export default function Contact() {
   return (
     <section id="contact" className="max-w-3xl mx-auto mb-24">

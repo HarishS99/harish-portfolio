@@ -12,19 +12,17 @@ export default function Navbar() {
   const isBlogPage = pathname.startsWith("/blog");
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    const isDarkMode = saved === "dark";
-    setIsDark(isDarkMode);
-    document.documentElement.classList.toggle("dark", isDarkMode);
+  const saved = localStorage.getItem("theme");
+  const isDarkMode = saved === "dark";
+  setIsDark(isDarkMode);
+  document.documentElement.classList.toggle("dark", isDarkMode);
 
-    const onScroll = () => {
-      const heroHeight = window.innerHeight * 0.6; // Adjust if needed
-      setScrolled(window.scrollY > heroHeight);
-    };
-
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  // show brand once we scroll a bit (not near the anchor landing)
+  const onScroll = () => setScrolled(window.scrollY > 120);
+  onScroll(); // set once on first paint
+  window.addEventListener("scroll", onScroll);
+  return () => window.removeEventListener("scroll", onScroll);
+}, []);
 
   const onToggleTheme = () => {
     const newTheme = !isDark;
@@ -40,7 +38,7 @@ export default function Navbar() {
     <>
       {!menuOpen && (
         <nav
-          className={`flex items-center justify-between px-8 sticky top-0 z-50 transition-all duration-300
+          className={`flex items-center justify-between px-8 sticky top-0 z-[200] transition-all duration-300
             ${scrolled ? "py-3 backdrop-blur-lg bg-white/70 dark:bg-black/60 shadow-sm" : "py-6 bg-transparent"}
           `}
         >

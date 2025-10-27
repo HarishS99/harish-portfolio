@@ -38,7 +38,7 @@ export default function Navbar() {
     <>
       {!menuOpen && (
         <nav className="w-full sticky top-0 z-[200] backdrop-blur-lg bg-white/80 dark:bg-black/80 border-b border-white/10 dark:border-white/10 shadow-sm transition-all duration-300">
-        <div className="max-w-3xl mx-auto flex items-center justify-between py-4 px-4">
+        <div className="hidden md:flex text-sm gap-8 text-gray-600 dark:text-gray-300 justify-start">
 
           {/* Brand name only visible AFTER scroll OR on Blog */}
           <Link href="/" className={`text-sm font-semibold transition-all duration-300

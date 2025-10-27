@@ -53,15 +53,14 @@ export default function Navbar() {
             <a href={linkTo("projects-impact")} className="hover:opacity-50 transition">Projects</a>
             <a href={linkTo("publications")} className="hover:opacity-50 transition">Featured Publications</a>
             <a href={linkTo("education")} className="hover:opacity-50 transition">Education</a>
-
-            <Link
+            <a href={linkTo("contact")} className="hover:opacity-50 transition">Contact</a>
+             <Link
               href="/blog"
               className={`hover:opacity-50 transition ${isBlogPage ? "font-bold opacity-100" : ""}`}
             >
               My Blog
             </Link>
 
-            <a href={linkTo("contact")} className="hover:opacity-50 transition">Contact</a>
           </div>
 
           <div className="flex items-center gap-4">

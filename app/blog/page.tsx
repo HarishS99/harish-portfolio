@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "../(site)/components/Navbar";
-import Footer from "../(site)/components/Footer";
+import Footer from "../../(site)/components/Footer";
+import Navbar from "../../(site)/components/Navbar";
 import Link from "next/link";
 
 export default function BlogPage() {

@@ -8,8 +8,8 @@ import Contact from "./(site)/sections/Contact";
 import Education from "./(site)/sections/Education";
 import Certifications from "./(site)/sections/Certifications";
 import Publications from "./(site)/sections/Publications";
-import Footer from "../../(site)/components/Footer";
-import Navbar from "../../(site)/components/Navbar";
+import Footer from "./(site)/components/Footer";
+import Navbar from "./(site)/components/Navbar";
 
 export default function Page() {
   return (

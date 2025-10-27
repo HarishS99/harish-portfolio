@@ -78,7 +78,36 @@ export default function Navbar() {
         </nav>
       )}
 
-      {/* MOBILE MENU stays unchanged */}
+      {/* MOBILE FULL-SCREEN OVERLAY MENU */}
+{menuOpen && (
+  <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl text-white flex flex-col justify-between p-8">
+    <button
+      className="text-2xl self-end"
+      onClick={() => setMenuOpen(false)}
+    >
+      ✕
+    </button>
+
+    <div className="flex flex-col gap-6 text-xl">
+      <a href={linkTo("about")} onClick={() => setMenuOpen(false)}>About</a>
+      <a href={linkTo("experience")} onClick={() => setMenuOpen(false)}>Experience</a>
+      <a href={linkTo("certifications")} onClick={() => setMenuOpen(false)}>Certifications</a>
+      <a href={linkTo("projects-impact")} onClick={() => setMenuOpen(false)}>Projects</a>
+      <a href={linkTo("publications")} onClick={() => setMenuOpen(false)}>Featured Publications</a>
+      <a href={linkTo("education")} onClick={() => setMenuOpen(false)}>Education</a>
+      <a href="/blog" onClick={() => setMenuOpen(false)}>My Blog</a>
+      <a href={linkTo("contact")} onClick={() => setMenuOpen(false)}>Contact</a>
+    </div>
+
+    <button
+      onClick={onToggleTheme}
+      className="self-center mt-10 text-lg opacity-90 hover:opacity-100 transition-transform duration-200"
+    >
+      {isDark ? "🌙 Dark Mode" : "💡 Light Mode"}
+    </button>
+  </div>
+)}
+
     </>
   );
 }

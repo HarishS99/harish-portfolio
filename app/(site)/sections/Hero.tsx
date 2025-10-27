@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <motion.section
       id="hero"
-      className="max-w-3xl mx-auto mb-16"
+      className="relative z-0 max-w-3xl mx-auto mb-16 px-4"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

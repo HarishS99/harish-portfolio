@@ -49,7 +49,7 @@ export default function Page() {
             </svg>
           </a>
         </div>
-        © {new Date().getFullYear()} Harish Subramanian — All Rights Reserved
+        © {new Date().getFullYear()} Harish Subramanian — All Rights Reserved - Made with ❤️
         </footer>
 
 

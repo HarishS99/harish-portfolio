@@ -17,7 +17,11 @@ export default function Navbar() {
     setIsDark(isDarkMode);
     document.documentElement.classList.toggle("dark", isDarkMode);
 
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => {
+      const heroHeight = window.innerHeight * 0.6; // Adjust if needed
+      setScrolled(window.scrollY > heroHeight);
+    };
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -36,10 +40,14 @@ export default function Navbar() {
     <>
       {!menuOpen && (
         <nav
-          className={`flex items-center justify-between py-4 px-8 mb-8 sticky top-0 z-50 transition-all duration-300
-          ${scrolled ? "backdrop-blur-lg bg-white/70 dark:bg-black/60 shadow-sm" : "bg-transparent"}`}
+          className={`flex items-center justify-between px-8 sticky top-0 z-50 transition-all duration-300
+            ${scrolled ? "py-3 backdrop-blur-lg bg-white/70 dark:bg-black/60 shadow-sm" : "py-6 bg-transparent"}
+          `}
         >
-          <Link href="/" className="text-sm font-semibold opacity-90 hover:opacity-100">
+          {/* Brand name only visible AFTER scroll OR on Blog */}
+          <Link href="/" className={`text-sm font-semibold transition-all duration-300
+            ${scrolled || isBlogPage ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}
+          `}>
             Harish Subramanian
           </Link>
 
@@ -50,9 +58,14 @@ export default function Navbar() {
             <a href={linkTo("projects-impact")} className="hover:opacity-50 transition">Projects</a>
             <a href={linkTo("publications")} className="hover:opacity-50 transition">Featured Publications</a>
             <a href={linkTo("education")} className="hover:opacity-50 transition">Education</a>
-            <Link href="/blog" className={`hover:opacity-50 transition ${isBlogPage ? "font-bold opacity-100" : ""}`}>
+
+            <Link
+              href="/blog"
+              className={`hover:opacity-50 transition ${isBlogPage ? "font-bold opacity-100" : ""}`}
+            >
               My Blog
             </Link>
+
             <a href={linkTo("contact")} className="hover:opacity-50 transition">Contact</a>
           </div>
 
@@ -63,17 +76,14 @@ export default function Navbar() {
             >
               {isDark ? "🌙" : "💡"}
             </button>
-            <button
-              className="md:hidden text-xl"
-              onClick={() => setMenuOpen(true)}
-            >
+            <button className="md:hidden text-xl" onClick={() => setMenuOpen(true)}>
               ☰
             </button>
           </div>
         </nav>
       )}
 
-      {/* MOBILE MENU STAYS SAME — it will work with above logic */}
+      {/* MOBILE MENU stays unchanged */}
     </>
   );
 }

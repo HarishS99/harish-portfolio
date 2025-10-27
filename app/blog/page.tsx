@@ -39,8 +39,12 @@ export default function BlogPage() {
             href="/blog/first-post"
             className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
           >
-            <div className="w-full h-40 rounded-xl bg-gradient-to-br from-gray-200/50 to-gray-400/10 dark:from-gray-800/50 dark:to-gray-700/20 mb-4" />
-        
+            <img
+              src="/background.png"
+              alt="Blog Cover"
+              className="w-full h-40 object-cover rounded-xl mb-4"
+            />
+
             <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20">
               Learnings
             </span>

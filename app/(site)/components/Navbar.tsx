@@ -1,16 +1,19 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export default function Navbar() {
   const [isDark, setIsDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   const pathname = usePathname();
+  const search = useSearchParams();
   const isBlogPage = pathname.startsWith("/blog");
 
-  // init theme + scroll listener
+  // Init theme + scroll reveal
   useEffect(() => {
     const saved = localStorage.getItem("theme");
     const isDarkMode = saved === "dark";
@@ -18,12 +21,12 @@ export default function Navbar() {
     document.documentElement.classList.toggle("dark", isDarkMode);
 
     const onScroll = () => setScrolled(window.scrollY > 120);
-    onScroll();
+    onScroll(); // set on first paint
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ✅ Close mobile menu when resizing to desktop
+  // Close mobile menu on desktop resize
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 768) setMenuOpen(false);
@@ -32,7 +35,19 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // ✅ Lock page scroll while menu is open
+  // Close on orientation change (iOS)
+  useEffect(() => {
+    const onOrient = () => setMenuOpen(false);
+    window.addEventListener("orientationchange", onOrient);
+    return () => window.removeEventListener("orientationchange", onOrient);
+  }, []);
+
+  // Close on any route / query / hash change
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname, search?.toString()]);
+
+  // Lock body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
@@ -59,7 +74,7 @@ export default function Navbar() {
       {!menuOpen && (
         <nav className="w-full sticky top-0 z-[200] backdrop-blur-lg bg-white/80 dark:bg-black/80 border-b border-white/10 dark:border-white/10 shadow-sm">
           <div className="max-w-5xl mx-auto flex items-center justify-between py-4 px-4">
-            {/* Brand shows after scroll OR on blog page */}
+            {/* Brand shows after scroll or on blog */}
             <Link
               href="/"
               className={`text-sm font-semibold transition-all duration-300
@@ -77,18 +92,14 @@ export default function Navbar() {
               <a href={linkTo("projects-impact")} className="hover:opacity-50 transition">Projects</a>
               <a href={linkTo("publications")} className="hover:opacity-50 transition">Featured Publications</a>
               <a href={linkTo("education")} className="hover:opacity-50 transition">Education</a>
-              <Link
-                href="/blog"
-                className={`hover:opacity-50 transition ${isBlogPage ? "font-bold opacity-100" : ""}`}
-              >
+              <Link href="/blog" className={`hover:opacity-50 transition ${isBlogPage ? "font-bold opacity-100" : ""}`}>
                 My Blog
               </Link>
               <a href={linkTo("contact")} className="hover:opacity-50 transition">Contact</a>
             </div>
 
-            {/* Right side controls */}
+            {/* Right controls */}
             <div className="flex items-center gap-4">
-              {/* Theme toggle (desktop only) */}
               <button
                 onClick={onToggleTheme}
                 aria-label="Toggle theme"
@@ -96,8 +107,6 @@ export default function Navbar() {
               >
                 {isDark ? "🌙" : "💡"}
               </button>
-
-              {/* Hamburger (mobile only) */}
               <button
                 className="md:hidden text-xl"
                 aria-label="Open menu"
@@ -111,9 +120,9 @@ export default function Navbar() {
         </nav>
       )}
 
-      {/* MOBILE FULL-SCREEN OVERLAY — hidden on md+ */}
+      {/* MOBILE FULL-SCREEN OVERLAY (iOS-safe) */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl text-white flex flex-col justify-between p-8 md:hidden">
+        <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl text-white flex flex-col justify-between p-8 md:hidden min-h-[100svh] overscroll-none pb-[env(safe-area-inset-bottom)]">
           <button
             className="text-2xl self-end"
             aria-label="Close menu"
@@ -133,7 +142,6 @@ export default function Navbar() {
             <a href={linkTo("contact")} onClick={() => setMenuOpen(false)}>Contact</a>
           </div>
 
-          {/* Theme toggle (mobile) */}
           <button
             onClick={onToggleTheme}
             className="self-center mt-10 text-lg opacity-90 hover:opacity-100 transition-transform duration-200"

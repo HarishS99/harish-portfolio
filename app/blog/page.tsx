@@ -5,6 +5,7 @@ import Navbar from "../(site)/components/Navbar";
 
 export default function BlogPage() {
   return (
+    <>
     <Navbar />
     <main className="min-h-screen p-6 md:p-10 max-w-5xl mx-auto">
       <h1 className="text-3xl font-bold mb-10">My Blog</h1>
@@ -30,5 +31,6 @@ export default function BlogPage() {
         </Link>
       </div>
     </main>
+    </>
   );
 }

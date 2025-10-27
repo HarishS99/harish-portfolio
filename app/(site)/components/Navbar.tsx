@@ -20,15 +20,15 @@ export default function Navbar() {
     document.documentElement.classList.toggle("dark", isDarkMode);
 
     const onScroll = () => setScrolled(window.scrollY > 120);
-    onScroll(); // set on first paint
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on desktop resize
+  // Close mobile menu on desktop resize (NOW switches at 1024px+)
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth >= 768) setMenuOpen(false);
+      if (window.innerWidth >= 1024) setMenuOpen(false);
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
@@ -46,7 +46,7 @@ export default function Navbar() {
     setMenuOpen(false);
   }, [pathname]);
 
-  // Close on hash/back-forward changes (no Suspense needed)
+  // Close on hash/back-forward changes
   useEffect(() => {
     const handler = () => setMenuOpen(false);
     window.addEventListener("hashchange", handler);
@@ -55,7 +55,7 @@ export default function Navbar() {
       window.removeEventListener("hashchange", handler);
       window.removeEventListener("popstate", handler);
     };
-  }, []); // <-- this was missing
+  }, []);
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -84,7 +84,6 @@ export default function Navbar() {
       {!menuOpen && (
         <nav className="w-full sticky top-0 z-[200] backdrop-blur-lg bg-white/80 dark:bg-black/80 border-b border-white/10 dark:border-white/10 shadow-sm">
           <div className="max-w-5xl mx-auto flex items-center justify-between py-4 px-4">
-            {/* Brand shows after scroll or on blog */}
             <Link
               href="/"
               className={`text-sm font-semibold transition-all duration-300 ${
@@ -96,8 +95,8 @@ export default function Navbar() {
               Harish Subramanian
             </Link>
 
-            {/* Desktop links */}
-            <div className="hidden md:flex text-sm gap-8 text-gray-600 dark:text-gray-300">
+            {/* Desktop links — NOW lg breakpoint */}
+            <div className="hidden lg:flex text-sm gap-8 text-gray-600 dark:text-gray-300">
               <a href={linkTo("about")} className="hover:opacity-50 transition">About</a>
               <a href={linkTo("experience")} className="hover:opacity-50 transition">Experience</a>
               <a href={linkTo("certifications")} className="hover:opacity-50 transition">Certifications</a>
@@ -110,17 +109,16 @@ export default function Navbar() {
               <a href={linkTo("contact")} className="hover:opacity-50 transition">Contact</a>
             </div>
 
-            {/* Right controls */}
             <div className="flex items-center gap-4">
               <button
                 onClick={onToggleTheme}
                 aria-label="Toggle theme"
-                className="hidden md:block text-lg opacity-90 hover:opacity-100 transition-transform duration-200"
+                className="hidden lg:block text-lg opacity-90 hover:opacity-100 transition-transform duration-200"
               >
                 {isDark ? "🌙" : "💡"}
               </button>
               <button
-                className="md:hidden text-xl"
+                className="lg:hidden text-xl"
                 aria-label="Open menu"
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen(true)}
@@ -132,9 +130,9 @@ export default function Navbar() {
         </nav>
       )}
 
-      {/* MOBILE FULL-SCREEN OVERLAY (iOS-safe) */}
+      {/* MOBILE FULL-SCREEN OVERLAY */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl text-white flex flex-col justify-between p-8 md:hidden min-h-[100svh] overscroll-none pb-[env(safe-area-inset-bottom)]">
+        <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl text-white flex flex-col justify-between p-8 lg:hidden min-h-[100svh] overscroll-none pb-[env(safe-area-inset-bottom)]">
           <button
             className="text-2xl self-end"
             aria-label="Close menu"

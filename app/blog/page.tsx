@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function BlogPage() {
   return (
     <main className="min-h-screen p-6 md:p-10 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-10">Blog</h1>
+      <h1 className="text-3xl font-bold mb-10">My Blog</h1>
 
       <div className="grid md:grid-cols-2 gap-8">
         {/* PLACEHOLDER BLOG CARD */}

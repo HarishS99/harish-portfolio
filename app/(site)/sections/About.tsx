@@ -5,7 +5,7 @@ export default function About() {
   return (
     <motion.section
       id="about"
-      className="max-w-3xl mx-auto mb-16"
+      className="max-w-3xl mx-auto mb-16 scroll-mt-24"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

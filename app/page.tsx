@@ -1,4 +1,4 @@
-import Navbar from "./(site)/components/Navbar";
+
 import Hero from "./(site)/sections/Hero";
 import About from "./(site)/sections/About";
 import Blog from "./(site)/sections/Blog";
@@ -8,7 +8,8 @@ import Contact from "./(site)/sections/Contact";
 import Education from "./(site)/sections/Education";
 import Certifications from "./(site)/sections/Certifications";
 import Publications from "./(site)/sections/Publications";
-import Footer from "../(site)/components/Footer";
+import Footer from "../../(site)/components/Footer";
+import Navbar from "../../(site)/components/Navbar";
 
 export default function Page() {
   return (

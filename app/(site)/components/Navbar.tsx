@@ -37,11 +37,9 @@ export default function Navbar() {
   return (
     <>
       {!menuOpen && (
-        <nav
-          className={`flex items-center justify-between px-8 sticky top-0 z-[200] transition-all duration-300
-            ${scrolled ? "py-3 backdrop-blur-lg bg-white/70 dark:bg-black/60 shadow-sm" : "py-6 bg-transparent"}
-          `}
-        >
+        <nav className="w-full sticky top-0 z-[200] backdrop-blur-lg bg-white/80 dark:bg-black/80 border-b border-white/10 dark:border-white/10 shadow-sm transition-all duration-300">
+        <div className="max-w-3xl mx-auto flex items-center justify-between py-4 px-4">
+
           {/* Brand name only visible AFTER scroll OR on Blog */}
           <Link href="/" className={`text-sm font-semibold transition-all duration-300
             ${scrolled || isBlogPage ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}
@@ -77,6 +75,7 @@ export default function Navbar() {
             <button className="md:hidden text-xl" onClick={() => setMenuOpen(true)}>
               ☰
             </button>
+          </div>
           </div>
         </nav>
       )}

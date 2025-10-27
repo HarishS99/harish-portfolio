@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-//import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation"; // keep this
 
 export default function Navbar() {
   const [isDark, setIsDark] = useState(false);
@@ -10,7 +10,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   const pathname = usePathname();
-  const search = useSearchParams();
   const isBlogPage = pathname.startsWith("/blog");
 
   // Init theme + scroll reveal
@@ -42,18 +41,21 @@ export default function Navbar() {
     return () => window.removeEventListener("orientationchange", onOrient);
   }, []);
 
-    useEffect(() => {
+  // Close when route (pathname) changes
+  useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
 
+  // Close on hash/back-forward changes (no Suspense needed)
   useEffect(() => {
-  const handler = () => setMenuOpen(false);
-  window.addEventListener("hashchange", handler);
-  window.addEventListener("popstate", handler);
-  return () => {
-    window.removeEventListener("hashchange", handler);
-    window.removeEventListener("popstate", handler);
-  };
+    const handler = () => setMenuOpen(false);
+    window.addEventListener("hashchange", handler);
+    window.addEventListener("popstate", handler);
+    return () => {
+      window.removeEventListener("hashchange", handler);
+      window.removeEventListener("popstate", handler);
+    };
+  }, []); // <-- this was missing
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -85,9 +87,11 @@ export default function Navbar() {
             {/* Brand shows after scroll or on blog */}
             <Link
               href="/"
-              className={`text-sm font-semibold transition-all duration-300
-                ${scrolled || isBlogPage ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}
-              `}
+              className={`text-sm font-semibold transition-all duration-300 ${
+                scrolled || isBlogPage
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-2 pointer-events-none"
+              }`}
             >
               Harish Subramanian
             </Link>

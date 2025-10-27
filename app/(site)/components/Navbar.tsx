@@ -132,7 +132,7 @@ export default function Navbar() {
 
       {/* MOBILE FULL-SCREEN OVERLAY */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl text-white flex flex-col justify-between p-8 lg:hidden min-h-[100svh] overscroll-none pb-[env(safe-area-inset-bottom)]">
+        <div className="fixed inset-0 z-[300] bg-black/90 backdrop-blur-xl text-white flex flex-col justify-between p-8 lg:hidden min-h-[100svh] overflow-y-auto overscroll-none pb-[env(safe-area-inset-bottom)]">
           <button
             className="text-2xl self-end"
             aria-label="Close menu"

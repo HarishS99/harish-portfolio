@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+//import { usePathname, useSearchParams } from "next/navigation";
 
 export default function Navbar() {
   const [isDark, setIsDark] = useState(false);
@@ -42,10 +42,18 @@ export default function Navbar() {
     return () => window.removeEventListener("orientationchange", onOrient);
   }, []);
 
-  // Close on any route / query / hash change
-  useEffect(() => {
+    useEffect(() => {
     setMenuOpen(false);
-  }, [pathname, search?.toString()]);
+  }, [pathname]);
+
+  useEffect(() => {
+  const handler = () => setMenuOpen(false);
+  window.addEventListener("hashchange", handler);
+  window.addEventListener("popstate", handler);
+  return () => {
+    window.removeEventListener("hashchange", handler);
+    window.removeEventListener("popstate", handler);
+  };
 
   // Lock body scroll when menu is open
   useEffect(() => {

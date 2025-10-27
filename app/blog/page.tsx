@@ -1,36 +1,58 @@
 "use client";
 
-import Link from "next/link";
+import { useState } from "react";
 import Navbar from "../(site)/components/Navbar";
+import Link from "next/link";
 
 export default function BlogPage() {
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const categories = ["All", "Tech", "Travel", "Learnings"];
+
   return (
     <>
-    <Navbar />
-    <main className="min-h-screen p-6 md:p-10 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-10">My Blog</h1>
+      <Navbar />
+      <main className="min-h-screen p-6 md:p-10 max-w-3xl mx-auto">
+        <h1 className="text-3xl font-bold mb-6">My Blog</h1>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* PLACEHOLDER BLOG CARD */}
-        <Link
-          href="#"
-          className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 hover:scale-[1.01] hover:shadow-xl transition-transform duration-200"
-        >
-          <div className="w-full h-40 rounded-xl bg-gradient-to-br from-gray-200/40 to-gray-400/10 dark:from-gray-800/40 dark:to-gray-700/10 mb-4" />
+        {/* Category Pills */}
+        <div className="flex gap-3 mb-10">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat.toLowerCase())}
+              className={`px-4 py-1 rounded-full text-sm transition border ${
+                activeCategory === cat.toLowerCase()
+                  ? "bg-black text-white dark:bg-white dark:text-black"
+                  : "opacity-70 hover:opacity-100"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
-          <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20">
-            Travel & Tech
-          </span>
+        {/* Blog Cards */}
+        <div className="grid gap-8">
+          <Link
+            href="/blog/first-post"
+            className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
+          >
+            <div className="w-full h-40 rounded-xl bg-gradient-to-br from-gray-200/40 to-gray-400/10 dark:from-gray-800/40 dark:to-gray-700/10 mb-4" />
 
-          <h2 className="text-lg font-medium mt-3">
-            Coming Soon — Personal Stories & Insights
-          </h2>
-          <p className="text-sm opacity-80 mt-2">
-            Exploring engineering, life lessons and experiences — blog launching soon.
-          </p>
-        </Link>
-      </div>
-    </main>
+            <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20">
+              Travel & Tech
+            </span>
+
+            <h2 className="text-lg font-medium mt-3">
+              Coming Soon — Personal Stories & Insights
+            </h2>
+            <p className="text-sm opacity-80 mt-2">
+              Exploring engineering, curiosity, and real-world learning — launching soon.
+            </p>
+          </Link>
+        </div>
+      </main>
     </>
   );
 }

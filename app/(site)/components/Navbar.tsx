@@ -31,6 +31,7 @@ export default function Navbar() {
             <a href="#projects-impact" className="hover:text-black dark:hover:text-white transition">Projects</a>
             <a href="#publications" className="hover:text-black dark:hover:text-white transition">Featured Publications</a>
             <a href="#education" className="hover:text-black dark:hover:text-white transition">Education</a>
+            <a href="/blog" className="hover:opacity-50 transition">My Blog</a>
             <a href="#contact" className="hover:text-black dark:hover:text-white transition">Contact</a>
           </div>
 

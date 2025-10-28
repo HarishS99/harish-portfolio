@@ -6,6 +6,9 @@ export default function MyStory() {
   return (
     <>
     < Navbar/>
+   <a href="/blog" className="text-sm opacity-70 hover:opacity-100 mb-6 inline-block">
+  ← back to blog
+    </a>
     <main className="min-h-screen bg-[#FAF7F2] px-6 py-20">
       <div className="max-w-3xl mx-auto font-serif leading-relaxed text-[17px] text-zinc-800">
         <h1 className="text-3xl italic mb-10 tracking-tight">

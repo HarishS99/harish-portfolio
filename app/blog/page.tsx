@@ -51,11 +51,10 @@ export default function BlogPage() {
             </span>
         
             <h2 className="text-lg font-medium mt-3">
-              From Engineering Execution to Strategic Intuition — Finding My Voice Beyond Just Tech
+              My Story
             </h2>
             <p className="text-sm opacity-80 mt-2">
-              A personal shift from “just building” to truly understanding why and for whom —
-              where intuition starts to matter more than pure execution.
+              Everything Harish...
             </p>
           </Link>
         </div>

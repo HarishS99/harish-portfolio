@@ -1,3 +1,6 @@
+import Navbar from "../(site)/components/Navbar";
+import Footer from "../(site)/components/Footer";
+
 // app/my-story/page.tsx  — Next.js App Router
 export default function MyStory() {
   return (

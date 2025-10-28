@@ -1,83 +1,44 @@
-"use client";
-
-import Footer from "../../(site)/components/Footer";
-import Navbar from "../../(site)/components/Navbar";
-import Link from "next/link";
-
-export default function BlogPost() {
+// app/my-story/page.tsx  — Next.js App Router
+export default function MyStory() {
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen p-6 md:p-10 max-w-3xl mx-auto">
-        <Link
-          href="/blog"
-          className="text-sm opacity-70 hover:opacity-100 transition inline-block mb-6"
-        >
-          ← Back to Blog
-        </Link>
-
-        <h1 className="text-3xl font-bold mb-2">
-          From Engineering Execution to Strategic Intuition — Finding My Voice Beyond Just Tech
+    <main className="min-h-screen bg-[#FAF7F2] px-6 py-20">
+      <div className="max-w-3xl mx-auto font-serif leading-relaxed text-[17px] text-zinc-800">
+        <h1 className="text-3xl italic mb-10 tracking-tight">
+          my story.
         </h1>
-        <p className="opacity-70 text-sm mb-10">Published: October 2025 · Category: Personal Journey</p>
 
-        <div className="prose dark:prose-invert max-w-none">
-          <p>
-            I didn’t start my career expecting to care about anything beyond pure engineering efficiency.
-            In the beginning, my world was about execution — clean architecture, scalability, performance tuning,
-            fault tolerance. Build it right, build it bulletproof, ship it fast.
-          </p>
+        <p className="mb-6">
+          I’ve spent the last few years juggling IT work, late-night production calls,
+          spontaneous travel plans and conversations with strangers I’ll probably never
+          meet again — and somewhere in that chaos, life has actually felt more honest
+          than any five-year plan.
+        </p>
 
-          <p>
-            But somewhere along the way, I started noticing something subtle yet important —
-            the most powerful engineers weren’t just the ones who built things. 
-            They were the ones who deeply understood <strong>why</strong> it was being built,
-            and <strong>who</strong> it was being built for.
-          </p>
+        <p className="mb-6">
+          I’m 25, still figuring things out — not in a meltdown way, just in a 
+          <em>“what’s the rush, but also what the hell is happening?”</em> kind of way.
+          I’m an engineer by profession, football keeps me sane, and travel is my favourite
+          way of remembering that there’s more to life than Teams calls and Jira tickets.
+        </p>
 
-          <p>
-            That’s when everything started shifting for me — from “How do I architect this system?” 
-            to “What problem is this truly solving? For whom? And does the solution matter in the real world?”
-          </p>
+        <p className="mb-6">
+          This space isn’t a self-help blog or a Dear Diary. It’s just my little corner of
+          the internet — to document the moments that disappear from Instagram in 24 hours
+          and the thoughts that only show up at 2 AM in buses, airports or hostel balconies.
+        </p>
 
-          <h3>The Moment It Really Hit Me</h3>
-          <p>
-            It wasn’t during a technical war room or a midnight deployment — 
-            it was during a conversation with a customer. 
-            The call wasn’t about “what feature is missing” but 
-            “what business risk do we eliminate if we solve this today?”  
-            And suddenly — everything changed.
-          </p>
+        <p className="mb-12">
+          I don’t know where this goes — and I kind of like it that way. If you connect 
+          with that, welcome. You’re already part of the story.
+        </p>
 
-          <p>
-            I realized strategy is not just what leaders decide in boardrooms.
-            Strategy quietly begins the moment an engineer chooses 
-            <em>which</em> problem is worth solving in the first place.
-          </p>
-
-          <h3>What I Know Now</h3>
-          <p>
-            I used to respect pure technical mastery above everything else.
-            Today, I respect <strong>technical intuition</strong> — 
-            the ability to translate human needs, urgency, and context into meaningful technical outcomes.
-          </p>
-
-          <p>
-            And in hindsight, this transition from execution to intuition wasn’t accidental — 
-            it was inevitable. Because you can be the smartest engineer in the room, 
-            but if you don’t understand human context — you’re solving problems that may not matter.
-          </p>
-
-          <hr />
-
-          <p>
-            In my next post, I’ll switch gears — and share how 
-            <strong>travel exposed me to systems more chaotic and more human than anything in tech</strong>, 
-            and what it taught me about simplicity, scalability, and decision-making.
-          </p>
-        </div>
-      </main>
-    <Footer/>
-    </>
-  );
+        <p className="font-medium">
+          — Harish <br />
+          <span className="text-[15px] italic opacity-80">
+            currently surviving on curiosity
+          </span>
+        </p>
+      </div>
+    </main>
+  )
 }

@@ -23,8 +23,8 @@ export default function MyStory() {
           <h1 className="text-3xl mb-6 tracking-tight italic">my story.</h1>
 
           <p className="mb-6">
-            I’ve spent the last few years juggling IT work, late-night production calls,
-            spontaneous travel plans and conversations with strangers I’ll probably never
+            Hello World, I’ve spent the last few years juggling IT work, all-night calls,
+            some spontaneous travel plans and  lot of conversations with strangers I’ll probably never
             meet again — and somewhere in that chaos, life has actually felt more honest
             than any five-year plan.
           </p>
@@ -32,15 +32,15 @@ export default function MyStory() {
           <p className="mb-6">
             I’m 25, still figuring things out — not in a meltdown way, just in a
             <em> “what’s the rush, but also what the hell is happening?” </em>
-            kind of way. I’m an engineer by profession, football keeps me sane, and travel
+            kind of way. I’m an engineer by profession, watching football keeps me sane, and travel
             is my favourite way of remembering that there’s more to life than Teams calls
-            and Jira tickets.
+            and POC scares. <em> "Sheesh, Almost a shit show!"</em>
           </p>
 
           <p className="mb-6">
             This space isn’t a self-help blog or a Dear Diary. It’s just my little corner
-            of the internet — to document the moments that disappear from Instagram in 24 hours
-            and the thoughts that only show up at 2 AM in buses, airports or hostel balconies.
+            of the internet — to remeber the moments that disappear from Instagram in 24 hours
+            or the thoughts that only show up at 2 AM in buses, airports or long showers, YES!!.
           </p>
 
           <p className="mb-10">

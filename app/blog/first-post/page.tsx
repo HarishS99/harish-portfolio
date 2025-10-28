@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import Navbar from '../../(site)/components/Navbar'; // ← adjust path if your Navbar lives elsewhere
-import Navbar from '../../(site)/components/Footer';
+import Footer from '../../(site)/components/Footer';
 export default function MyStory() {
   return (
     <>

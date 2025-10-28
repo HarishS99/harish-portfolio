@@ -4,6 +4,7 @@ import Footer from "../(site)/components/Footer";
 // app/my-story/page.tsx  — Next.js App Router
 export default function MyStory() {
   return (
+    <>
     < Navbar/>
     <main className="min-h-screen bg-[#FAF7F2] px-6 py-20">
       <div className="max-w-3xl mx-auto font-serif leading-relaxed text-[17px] text-zinc-800">
@@ -45,5 +46,6 @@ export default function MyStory() {
       </div>
     </main>
     < Footer/>
+    </>
   )
 }

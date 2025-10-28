@@ -34,7 +34,6 @@ export default function BlogPage() {
         </div>
 
         {/* Blog Cards */}
-        {/* Blog Cards */}
         <div className="grid gap-8">
           <Link
             href="/blog/first-post"
@@ -46,19 +45,17 @@ export default function BlogPage() {
               className="w-full h-40 object-cover rounded-xl mb-4"
             />
 
-            <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20">
+            {/* ✅ Timestamp ABOVE category */}
+            <p className="text-xs opacity-60">January 2025</p>
+
+            <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
               Learnings
             </span>
-        
-            <h2 className="text-lg font-medium mt-3">
-              My Story
-            </h2>
-            <p className="text-sm opacity-80 mt-2">
-              Everything Harish...
-            </p>
+
+            <h2 className="text-lg font-medium mt-3">My Story</h2>
+            <p className="text-sm opacity-80 mt-2">Everything Harish...</p>
           </Link>
         </div>
-
       </main>
       <Footer />
     </>

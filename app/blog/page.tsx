@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import type { Route } from "next";
 import Navbar from "../(site)/components/Navbar";
 import Footer from "../(site)/components/Footer";
 
@@ -58,15 +59,12 @@ export default function BlogPage(): JSX.Element {
     },
   ];
 
-  // filter first (still union-typed)
+  // Filter posts by category (normalize to lowercase)
   const filtered = posts.filter(
     (p) => activeCategory === "all" || p.category.toLowerCase() === activeCategory
   );
 
-  /**
-   * --- CRITICAL CHANGE: split into two typed arrays up front ---
-   * We use type predicates to narrow the arrays statically.
-   */
+  // Split into typed arrays so rendering is straightforward
   const internalPosts = filtered.filter(
     (p): p is InternalPost => (p as BlogPost).external === false
   );
@@ -104,11 +102,11 @@ export default function BlogPage(): JSX.Element {
 
         {/* Blog Cards Grid */}
         <div className="grid gap-8">
-          {/* Render internal posts with Link — TS knows href is `/blog/${string}` */}
+          {/* Internal posts: cast href to Route so next/link accepts it */}
           {internalPosts.map((p) => (
             <Link
               key={p.id}
-              href={p.href}
+              href={p.href as Route}
               className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
             >
               <img
@@ -128,7 +126,7 @@ export default function BlogPage(): JSX.Element {
             </Link>
           ))}
 
-          {/* Render external posts with <a> */}
+          {/* External posts */}
           {externalPosts.map((p) => (
             <a
               key={p.id}

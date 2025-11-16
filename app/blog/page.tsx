@@ -55,7 +55,7 @@ export default function BlogPage(): JSX.Element {
       date: "Nov 2025",
       category: "tech",
       excerpt: "An interesting read on the Stats for ML Models",
-      img: "/background.png",
+      img: "/background1.jpg",
     },
   ];
 

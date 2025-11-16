@@ -33,8 +33,10 @@ export default function BlogPage() {
           ))}
         </div>
 
-        {/* Blog Cards */}
+        {/* Blog Cards - ONE GRID CONTAINING BOTH */}
         <div className="grid gap-8">
+
+          {/* Card 1 — Internal Link */}
           <Link
             href="/blog/first-post"
             className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
@@ -45,7 +47,6 @@ export default function BlogPage() {
               className="w-full h-40 object-cover rounded-xl mb-4"
             />
 
-            {/* ✅ Timestamp ABOVE category */}
             <p className="text-xs opacity-60">Nov 2025</p>
 
             <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
@@ -55,10 +56,12 @@ export default function BlogPage() {
             <h2 className="text-lg font-medium mt-3">My Story</h2>
             <p className="text-sm opacity-80 mt-2">Everything Harish...</p>
           </Link>
-          {/* Blog Cards */}
-        <div className="grid gap-8">
-          <Link
+
+          {/* Card 2 — External Link */}
+          <a
             href="https://medium.com/@srnayak165/statistics-for-machine-learning-a-beginners-guide-35901f8e43c4"
+            target="_blank"
+            rel="noopener noreferrer"
             className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
           >
             <img
@@ -67,7 +70,6 @@ export default function BlogPage() {
               className="w-full h-40 object-cover rounded-xl mb-4"
             />
 
-            {/* ✅ Timestamp ABOVE category */}
             <p className="text-xs opacity-60">Nov 2025</p>
 
             <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
@@ -75,8 +77,11 @@ export default function BlogPage() {
             </span>
 
             <h2 className="text-lg font-medium mt-3">Stats for Machine Learning</h2>
-            <p className="text-sm opacity-80 mt-2">An interesting read on the Stats for ML Models</p>
-          </Link>
+            <p className="text-sm opacity-80 mt-2">
+              An interesting read on the Stats for ML Models
+            </p>
+          </a>
+
         </div>
       </main>
       <Footer />

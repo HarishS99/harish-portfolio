@@ -46,7 +46,7 @@ export default function BlogPage() {
             />
 
             {/* ✅ Timestamp ABOVE category */}
-            <p className="text-xs opacity-60">January 2025</p>
+            <p className="text-xs opacity-60">Nov 2025</p>
 
             <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
               Learnings

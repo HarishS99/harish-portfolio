@@ -30,12 +30,6 @@ type ExternalPost = {
 
 type BlogPost = InternalPost | ExternalPost;
 
-/* --- Type guard --- */
-function isExternalPost(p: BlogPost): p is ExternalPost {
-  return p.external === true;
-}
-
-/* --- Component --- */
 export default function BlogPage(): JSX.Element {
   const [activeCategory, setActiveCategory] = useState<string>("all");
 
@@ -64,8 +58,21 @@ export default function BlogPage(): JSX.Element {
     },
   ];
 
-  const visiblePosts = posts.filter(
+  // filter first (still union-typed)
+  const filtered = posts.filter(
     (p) => activeCategory === "all" || p.category.toLowerCase() === activeCategory
+  );
+
+  /**
+   * --- CRITICAL CHANGE: split into two typed arrays up front ---
+   * We use type predicates to narrow the arrays statically.
+   */
+  const internalPosts = filtered.filter(
+    (p): p is InternalPost => (p as BlogPost).external === false
+  );
+
+  const externalPosts = filtered.filter(
+    (p): p is ExternalPost => (p as BlogPost).external === true
   );
 
   return (
@@ -97,61 +104,58 @@ export default function BlogPage(): JSX.Element {
 
         {/* Blog Cards Grid */}
         <div className="grid gap-8">
-          {visiblePosts.map((p) => {
-            // use the type guard so TS can narrow p to ExternalPost or InternalPost
-            if (isExternalPost(p)) {
-              return (
-                <a
-                  key={p.id}
-                  href={p.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
-                >
-                  <img
-                    src={p.img}
-                    alt={`${p.title} cover`}
-                    className="w-full h-40 object-cover rounded-xl mb-4"
-                  />
+          {/* Render internal posts with Link — TS knows href is `/blog/${string}` */}
+          {internalPosts.map((p) => (
+            <Link
+              key={p.id}
+              href={p.href}
+              className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
+            >
+              <img
+                src={p.img}
+                alt={`${p.title} cover`}
+                className="w-full h-40 object-cover rounded-xl mb-4"
+              />
 
-                  <p className="text-xs opacity-60">{p.date}</p>
+              <p className="text-xs opacity-60">{p.date}</p>
 
-                  <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
-                    {p.category.charAt(0).toUpperCase() + p.category.slice(1)}
-                  </span>
+              <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
+                {p.category.charAt(0).toUpperCase() + p.category.slice(1)}
+              </span>
 
-                  <h2 className="text-lg font-medium mt-3">{p.title}</h2>
-                  <p className="text-sm opacity-80 mt-2">{p.excerpt}</p>
-                </a>
-              );
-            }
+              <h2 className="text-lg font-medium mt-3">{p.title}</h2>
+              <p className="text-sm opacity-80 mt-2">{p.excerpt}</p>
+            </Link>
+          ))}
 
-            // else: TypeScript now knows p is InternalPost, so p.href has the `/blog/...` literal type
-            return (
-              <Link
-                key={p.id}
-                href={p.href}
-                className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
-              >
-                <img
-                  src={p.img}
-                  alt={`${p.title} cover`}
-                  className="w-full h-40 object-cover rounded-xl mb-4"
-                />
+          {/* Render external posts with <a> */}
+          {externalPosts.map((p) => (
+            <a
+              key={p.id}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
+            >
+              <img
+                src={p.img}
+                alt={`${p.title} cover`}
+                className="w-full h-40 object-cover rounded-xl mb-4"
+              />
 
-                <p className="text-xs opacity-60">{p.date}</p>
+              <p className="text-xs opacity-60">{p.date}</p>
 
-                <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
-                  {p.category.charAt(0).toUpperCase() + p.category.slice(1)}
-                </span>
+              <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
+                {p.category.charAt(0).toUpperCase() + p.category.slice(1)}
+              </span>
 
-                <h2 className="text-lg font-medium mt-3">{p.title}</h2>
-                <p className="text-sm opacity-80 mt-2">{p.excerpt}</p>
-              </Link>
-            );
-          })}
+              <h2 className="text-lg font-medium mt-3">{p.title}</h2>
+              <p className="text-sm opacity-80 mt-2">{p.excerpt}</p>
+            </a>
+          ))}
 
-          {visiblePosts.length === 0 && (
+          {/* If none */}
+          {internalPosts.length + externalPosts.length === 0 && (
             <p className="text-sm opacity-70">No posts in this category yet.</p>
           )}
         </div>

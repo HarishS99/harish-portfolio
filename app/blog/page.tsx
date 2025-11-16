@@ -10,6 +10,35 @@ export default function BlogPage() {
 
   const categories = ["All", "Tech", "Travel", "Learnings"];
 
+  // Define posts with a `category` key (lowercase)
+  const posts = [
+    {
+      id: 1,
+      title: "My Story",
+      href: "/blog/first-post",
+      external: false,
+      date: "Nov 2025",
+      category: "learnings",
+      excerpt: "Everything Harish...",
+      img: "/background.png",
+    },
+    {
+      id: 2,
+      title: "Stats for Machine Learning",
+      href: "https://medium.com/@srnayak165/statistics-for-machine-learning-a-beginners-guide-35901f8e43c4",
+      external: true,
+      date: "Nov 2025",
+      category: "tech", // <-- set this one to tech
+      excerpt: "An interesting read on the Stats for ML Models",
+      img: "/background.png",
+    },
+  ];
+
+  // Filter posts according to activeCategory
+  const visiblePosts = posts.filter(
+    (p) => activeCategory === "all" || p.category === activeCategory
+  );
+
   return (
     <>
       <Navbar />
@@ -18,70 +47,72 @@ export default function BlogPage() {
 
         {/* Category Pills */}
         <div className="flex gap-3 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat.toLowerCase())}
-              className={`px-4 py-1 rounded-full text-sm transition border ${
-                activeCategory === cat.toLowerCase()
-                  ? "bg-black text-white dark:bg-white dark:text-black"
-                  : "opacity-70 hover:opacity-100"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          {categories.map((cat) => {
+            const lower = cat.toLowerCase();
+            return (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(lower)}
+                className={`px-4 py-1 rounded-full text-sm transition border ${
+                  activeCategory === lower
+                    ? "bg-black text-white dark:bg-white dark:text-black"
+                    : "opacity-70 hover:opacity-100"
+                }`}
+              >
+                {cat}
+              </button>
+            );
+          })}
         </div>
 
-        {/* Blog Cards - ONE GRID CONTAINING BOTH */}
+        {/* Blog Cards - ONE GRID CONTAINING BOTH (but filtered) */}
         <div className="grid gap-8">
+          {visiblePosts.map((p) =>
+            p.external ? (
+              <a
+                key={p.id}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
+              >
+                <img
+                  src={p.img}
+                  alt="Blog Cover"
+                  className="w-full h-40 object-cover rounded-xl mb-4"
+                />
+                <p className="text-xs opacity-60">{p.date}</p>
+                <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
+                  {p.category.charAt(0).toUpperCase() + p.category.slice(1)}
+                </span>
+                <h2 className="text-lg font-medium mt-3">{p.title}</h2>
+                <p className="text-sm opacity-80 mt-2">{p.excerpt}</p>
+              </a>
+            ) : (
+              <Link
+                key={p.id}
+                href={p.href}
+                className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
+              >
+                <img
+                  src={p.img}
+                  alt="Blog Cover"
+                  className="w-full h-40 object-cover rounded-xl mb-4"
+                />
+                <p className="text-xs opacity-60">{p.date}</p>
+                <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
+                  {p.category.charAt(0).toUpperCase() + p.category.slice(1)}
+                </span>
+                <h2 className="text-lg font-medium mt-3">{p.title}</h2>
+                <p className="text-sm opacity-80 mt-2">{p.excerpt}</p>
+              </Link>
+            )
+          )}
 
-          {/* Card 1 — Internal Link */}
-          <Link
-            href="/blog/first-post"
-            className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
-          >
-            <img
-              src="/background.png"
-              alt="Blog Cover"
-              className="w-full h-40 object-cover rounded-xl mb-4"
-            />
-
-            <p className="text-xs opacity-60">Nov 2025</p>
-
-            <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
-              Learnings
-            </span>
-
-            <h2 className="text-lg font-medium mt-3">My Story</h2>
-            <p className="text-sm opacity-80 mt-2">Everything Harish...</p>
-          </Link>
-
-          {/* Card 2 — External Link */}
-          <a
-            href="https://medium.com/@srnayak165/statistics-for-machine-learning-a-beginners-guide-35901f8e43c4"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block p-5 rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 backdrop-blur-md hover:scale-[1.01] hover:shadow-xl transition-transform duration-300"
-          >
-            <img
-              src="/background.png"
-              alt="Blog Cover"
-              className="w-full h-40 object-cover rounded-xl mb-4"
-            />
-
-            <p className="text-xs opacity-60">Nov 2025</p>
-
-            <span className="text-sm opacity-70 px-3 py-1 rounded-full border border-white/10 dark:border-white/20 mt-1 inline-block">
-              Learnings
-            </span>
-
-            <h2 className="text-lg font-medium mt-3">Stats for Machine Learning</h2>
-            <p className="text-sm opacity-80 mt-2">
-              An interesting read on the Stats for ML Models
-            </p>
-          </a>
-
+          {/* Optional: show a message when no posts match */}
+          {visiblePosts.length === 0 && (
+            <p className="text-sm opacity-70">No posts in this category yet.</p>
+          )}
         </div>
       </main>
       <Footer />
